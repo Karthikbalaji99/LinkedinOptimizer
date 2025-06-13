@@ -23,7 +23,48 @@ from prompts import (
     history_manager_prompt,
     collaborative_agent_prompt
 )
-# Load environment variables from .env file
+import base64
+
+def push_session_to_github(session_data):
+    """Push the session JSON file to GitHub using GitHub REST API"""
+    secrets = st.secrets
+    headers = {
+        "Authorization": f"token {secrets['GITHUB_TOKEN']}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+
+    file_path = f"sessions/{session_data['session_id']}.json"
+    url = f"https://api.github.com/repos/{secrets['repo']}/contents/{file_path}"
+
+    content_b64 = base64.b64encode(
+        json.dumps(session_data, indent=2).encode("utf-8")
+    ).decode("utf-8")
+
+    # Check if the file already exists to get the SHA
+    get_resp = requests.get(url, headers=headers)
+    if get_resp.status_code == 200:
+        sha = get_resp.json()["sha"]
+        payload = {
+            "message": f"Update session {session_data['session_id']}",
+            "content": content_b64,
+            "branch": secrets["branch"],
+            "sha": sha
+        }
+    elif get_resp.status_code == 404:
+        payload = {
+            "message": f"Create session {session_data['session_id']}",
+            "content": content_b64,
+            "branch": secrets["branch"]
+        }
+    else:
+        st.error(f"❌ GitHub API error: {get_resp.status_code}")
+        return
+
+    put_resp = requests.put(url, headers=headers, json=payload)
+    if put_resp.status_code in (200, 201):
+        logger.info("✅ Session pushed to GitHub successfully.")
+    else:
+        logger.error(f"❌ GitHub push failed: {put_resp.json().get('message')}")
 
 # Configure logging for terminal output
 logging.basicConfig(
@@ -268,12 +309,17 @@ class SessionManager:
             return None
     
     def save_session(self, session_data: Dict[str, Any]):
-        """Save session data to storage file"""
+        """Save session data to local file and GitHub"""
         session_id = session_data["session_id"]
         session_file = os.path.join(self.sessions_dir, f"{session_id}.json")
+        
         with open(session_file, 'w') as f:
             json.dump(session_data, f, indent=2)
-        logger.info(f"Session saved: {session_id}")
+        
+        logger.info(f"Session saved locally: {session_id}")
+
+        # Push to GitHub
+        push_session_to_github(session_data)
     
     def get_all_sessions(self) -> List[Dict[str, Any]]:
         """Retrieve all session summaries for sidebar display"""
