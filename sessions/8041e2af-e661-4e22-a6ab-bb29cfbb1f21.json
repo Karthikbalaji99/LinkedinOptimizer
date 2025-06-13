@@ -3,7 +3,668 @@
   "created_at": "2025-06-13T12:34:13.619450",
   "profile_url": "https://www.linkedin.com/in/karthikbalaji99/",
   "job_description": "About the job\nAryaXAI is looking for a passionate and capable engineer to lead the development of our Enterprise AI Agent and AI Data Science Agent workstreams. Our mission is to build agentic systems that bring explainability, safety, and scalability to the forefront of enterprise AI.\n\nAs an AI Agent Engineer at AryaXAI, you'll play a key role in shaping intelligent agents that assist in enterprise decision-making, automate complex data science workflows, and integrate seamlessly into business ecosystems. These agents will serve as collaborators for enterprise teams\u2014leveraging reasoning, tool use, and memory\u2014while staying aligned with our focus on transparent and trustworthy AI.\n\nWe're seeking a strong engineering generalist with deep experience in LLMs, agent frameworks, and production-scale systems. You\u2019ve likely prototyped or shipped agent-based systems, pushed the boundaries of what LLMs can do, and are looking for a meaningful opportunity to build the future of responsible AI.\n\nResponsibilities\n\nLead the design and development of Enterprise AI Agents and Data Science Agent systems that combine reasoning, tool orchestration, and memory.\nCollaborate with product, research, and infrastructure teams to create scalable agent architectures tailored for enterprise users.\nBuild agent capabilities for tasks like automated analysis, reporting, data wrangling, and domain-specific workflows across business verticals.\nIntegrate real-time knowledge, enterprise APIs, RAG pipelines, and proprietary tools into agentic workflows.\nWork closely with the alignment and explainability teams to ensure agents remain safe, auditable, and transparent in their reasoning and output.\nContinuously evaluate and incorporate advances in GenAI (e.g., controllability, multi-modal models, memory layers) into the agent stack.\nHelp shape the engineering culture at AryaXAI through mentorship, reviews, and innovation.\n\nRequirements\n\nDemonstrated experience building with LLMs and Agentic frameworks (e.g., LangChain, LangFlow, Semantic Kernel, Haystack, ReAct, AutoGPT, etc.).\nExperience with productionizing AI/LLM workflows and integrating them into real-world applications or systems.\n2+ years of software engineering experience, ideally with some time in early-stage startups or AI-first environments.\nStrong Python skills and solid understanding of full-stack backend architecture (APIs, cloud infra, databases).\nA passion for building ethical, explainable, and high-impact AI products that solve real enterprise problems.\n(Bonus) Experience working on agent toolchains for data science, ML ops, or enterprise analytics.",
-  "profile_data": {},
+  "profile_data": {
+    "linkedinUrl": "https://www.linkedin.com/in/karthikbalaji99/",
+    "firstName": "Karthik",
+    "lastName": "Balaji",
+    "fullName": "Karthik Balaji",
+    "headline": "Generative AI Engineer | AI/ML | Data Scientist | LLMs",
+    "connections": 386,
+    "followers": 397,
+    "email": "karthik@carboncompete.com",
+    "mobileNumber": null,
+    "jobTitle": "Head of Product Development",
+    "companyName": "Carboncompete",
+    "companyIndustry": "Environmental Services",
+    "companyWebsite": "carboncompete.com",
+    "companyLinkedin": "linkedin.com/company/carboncompete",
+    "companyFoundedIn": 2022,
+    "companySize": "1-10",
+    "currentJobDuration": "3 mos",
+    "currentJobDurationInYrs": 0.25,
+    "topSkillsByEndorsements": null,
+    "addressCountryOnly": "India",
+    "addressWithCountry": "Chennai, Tamil Nadu, India",
+    "addressWithoutCountry": "Chennai, Tamil Nadu",
+    "profilePic": "https://media.licdn.com/dms/image/v2/D4E03AQGGmbEjqbad2g/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1710173701345?e=1755129600&v=beta&t=-sszfAEJNcoBbXy1Dk_ppoukG_WrL0sfcOlesXKlfUU",
+    "profilePicHighQuality": "https://media.licdn.com/dms/image/v2/D4E03AQGGmbEjqbad2g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1710173701345?e=1755129600&v=beta&t=yb5wycX7_CkFwh0eCAQfl59XUdY6TBocet7IxFVA5No",
+    "about": "Hi I am Karthik. I am passionate about Generative AI and Machine learning and sports like football and cricket. I look for chances that bring together the industrial and automated worlds. A highly effective engineer who is passionate about lifelong learning.\nYears of expertise using creativity, aggressiveness, and resourcefulness to influence excellent organizational outcomes.\nEnergetic and passionate post-graduate student looking for a place in a larger company to start a life-long career. Knowledgeable in the automation and robotics field as well as performance-driven and detail-oriented. Possess well-developed communication and team working skills.\nAs an AI Engineer at CarbonCompete, I look for opportunities to widen my knowledge on building generative AI Solution for Supply Chain Sustainability.",
+    "publicIdentifier": "karthikbalaji99",
+    "openConnection": true,
+    "urn": "ACoAACp7OHwB5peLR0P3maEEMwiNdBiUHJO4rJk",
+    "experiences": [
+      {
+        "companyId": "88920530",
+        "companyUrn": "urn:li:fsd_company:88920530",
+        "companyLink1": "https://www.linkedin.com/company/88920530/",
+        "logo": "https://media.licdn.com/dms/image/v2/D560BAQGSbW-UY9pODg/company-logo_400_400/B56ZZUpdnbHQAY-/0/1745176878004/mycorrhizas_logo?e=1755129600&v=beta&t=fOpNJHryNM5zUoZgyNVJNWhBpRQ3Vb4jO_4JPdjx4ec",
+        "title": "Head of Product Development",
+        "subtitle": "Mycorr \u00b7 Full-time",
+        "caption": "Apr 2025 - Present \u00b7 3 mos",
+        "metadata": "Paris, \u00cele-de-France, France \u00b7 Remote",
+        "breakdown": false,
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "textComponent",
+                "text": "\u2022 Led product development at Mycorr, focusing on building AI agents for supply chain optimization and sustainability.\n\u2022 Spearheaded the creation of an Automated Corporate Sustainability product to track emissions and enhance environmental impact.\n\u2022 Collaborated with cross-functional teams to drive technological advancements and product vision for customers."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "companyId": "107043575",
+        "companyUrn": "urn:li:fsd_company:107043575",
+        "companyLink1": "https://www.linkedin.com/company/107043575/",
+        "logo": "https://media.licdn.com/dms/image/v2/D560BAQEdop4ZmOcMOQ/company-logo_400_400/B56ZaAleLzHUAY-/0/1745914029199/carboncompetetech_logo?e=1755129600&v=beta&t=BqPVfHJZcZ9FeEr6eBt4IzWL1zAxTHlNfpTeRoBrODk",
+        "title": "CarbonCompete",
+        "subtitle": "Full-time \u00b7 1 yr 2 mos",
+        "caption": "On-site",
+        "metadata": "  helped me get this job",
+        "breakdown": true,
+        "subComponents": [
+          {
+            "title": "AI/ML Engineer",
+            "caption": "Jun 2024 - Mar 2025 \u00b7 10 mos",
+            "metadata": "Chennai, Tamil Nadu, India",
+            "description": [
+              {
+                "type": "textComponent",
+                "text": "Building Generative AI Solution for Supply Chain Sustainability.\n- Developed an advanced Retrieval-Augmented Generation (RAG) framework tailored to corporate\nsustainability needs, optimizing data-driven decision-making for sustainability initiatives.\n\n* Finetuned CarbonGPT for Decarbonisation:\n\n- Automated value chain mapping of a product\n- Automated Corporate GHG Reporting\n- Analyses Emission Hotspots\n- Tailored Recommendations and prediction algorithms making a way for Decarbonisation Roadmaps\n- Automated Enterprise Sustainability Reporting\n- Web Design using Figma\n- Vector Databases\n- ML DevOps using Microsoft Azure"
+              }
+            ]
+          },
+          {
+            "title": "Junior AI Engineer",
+            "caption": "Feb 2024 - Jun 2024 \u00b7 5 mos",
+            "metadata": "Chennai, Tamil Nadu, India",
+            "description": [
+              {
+                "type": "textComponent",
+                "text": "Building Generative AI Solution for Supply Chain Sustainability.\n- Developed an advanced Retrieval-Augmented Generation (RAG) framework tailored to corporate\nsustainability needs, optimizing data-driven decision-making for sustainability initiatives.\n\n* Finetuned CarbonGPT for Decarbonisation:\n\n- Automated value chain mapping of a product\n- Automated Corporate GHG Reporting\n- Analyses Emission Hotspots\n- Tailored Recommendations and prediction algorithms making a way for Decarbonisation Roadmaps"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "companyId": "10346",
+        "companyUrn": "urn:li:fsd_company:10346",
+        "companyLink1": "https://www.linkedin.com/company/10346/",
+        "logo": "https://media.licdn.com/dms/image/v2/C510BAQHAB_4PrYHE4g/company-logo_200_200/company-logo_200_200/0/1630569954515/mothersonsumi_infotech_designs_ltd_mind_logo?e=1755129600&v=beta&t=R9ElDcj8mKvI-qkvi2a74QQwfM75awOuBQsz_Z3WjsE",
+        "title": "Project Intern",
+        "subtitle": "Motherson Technology Services \u00b7 Internship",
+        "caption": "Mar 2023 - Jul 2023 \u00b7 5 mos",
+        "metadata": "Chennai, Tamil Nadu, India \u00b7 On-site",
+        "breakdown": false,
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "textComponent",
+                "text": "During my tenure as a project intern in Mothersons Technology Services Ltd I worked on a Driver Drowsiness Project wherein we built a ML model which alerts the driver whenever he is yawning, distracted or whenever any abnormal behavior by the driver is noticed.\n\n- Python and OpenCV\n- Automated alarm during any abnormal movement by the driver to avoid accidents"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "companyId": "31134086",
+        "companyUrn": "urn:li:fsd_company:31134086",
+        "companyLink1": "https://www.linkedin.com/company/31134086/",
+        "logo": "https://media.licdn.com/dms/image/v2/D560BAQHFP2jWgg-rqg/company-logo_200_200/company-logo_200_200/0/1733217992479?e=1755129600&v=beta&t=Gj9bb3A8XwQun5ve4yymkiA-jDGpc7xt7qM8wT-VSkY",
+        "title": "Intern ",
+        "subtitle": "Sona Comstar \u00b7 Internship",
+        "caption": "Dec 2019 - Jan 2020 \u00b7 2 mos",
+        "breakdown": false,
+        "subComponents": [
+          {
+            "description": []
+          }
+        ]
+      }
+    ],
+    "updates": [],
+    "skills": [
+      {
+        "title": "AI Agents",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "Head of Product Development at Mycorr"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Technology Product Development",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "Head of Product Development at Mycorr"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Prompt Engineering",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "Head of Product Development at Mycorr"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Figma",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "AI/ML Engineer at CarbonCompete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Datasets",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "3 experiences across CarbonCompete and 1 other company"
+              },
+              {
+                "type": "insightComponent",
+                "text": "SRH Berlin University of Applied Sciences"
+              },
+              {
+                "type": "insightComponent",
+                "text": "Descriptive Healthcare Analytics in R"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Software as a Service (SaaS)",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "3 experiences across Mycorr and 1 other company"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "JSON",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "2 experiences at CarbonCompete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Time Series Analysis",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "Junior AI Engineer at CarbonCompete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "OpenAI API",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "Junior AI Engineer at CarbonCompete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Scenario Planning",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "Junior AI Engineer at CarbonCompete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Supply Chain Sustainability",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "2 experiences at CarbonCompete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Life Cycle Assessment",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "2 experiences at CarbonCompete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Unsupervised Learning",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "Junior AI Engineer at CarbonCompete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Data Cleaning",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "2 experiences at CarbonCompete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Collaborative Problem Solving",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "Junior AI Engineer at CarbonCompete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "REST APIs",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "2 experiences at CarbonCompete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Transformers",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "2 experiences at CarbonCompete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Application Programming Interfaces (API)",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "2 experiences at CarbonCompete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Large Language Models (LLM)",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "3 experiences across Mycorr and 1 other company"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Microsoft Azure",
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "2 experiences across Mycorr and 1 other company"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "profilePicAllDimensions": [
+      {
+        "width": 100,
+        "height": 100,
+        "url": "https://media.licdn.com/dms/image/v2/D4E03AQGGmbEjqbad2g/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1710173701345?e=1755129600&v=beta&t=-sszfAEJNcoBbXy1Dk_ppoukG_WrL0sfcOlesXKlfUU"
+      },
+      {
+        "width": 200,
+        "height": 200,
+        "url": "https://media.licdn.com/dms/image/v2/D4E03AQGGmbEjqbad2g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1710173701345?e=1755129600&v=beta&t=YS4q0KAUzNFnbIhtLkIfq7OIcUGI5icaHiYcI-N_0dQ"
+      },
+      {
+        "width": 400,
+        "height": 400,
+        "url": "https://media.licdn.com/dms/image/v2/D4E03AQGGmbEjqbad2g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1710173701345?e=1755129600&v=beta&t=HdVXcQQsWaxs3slAv4MUp0J_hC9m4knpZ3_IDCncDiw"
+      },
+      {
+        "width": 800,
+        "height": 800,
+        "url": "https://media.licdn.com/dms/image/v2/D4E03AQGGmbEjqbad2g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1710173701345?e=1755129600&v=beta&t=yb5wycX7_CkFwh0eCAQfl59XUdY6TBocet7IxFVA5No"
+      }
+    ],
+    "educations": [
+      {
+        "companyId": "5954716",
+        "companyUrn": "urn:li:fsd_company:5954716",
+        "companyLink1": "https://www.linkedin.com/company/5954716/",
+        "logo": "https://media.licdn.com/dms/image/v2/C560BAQGmOTjiRRSxTw/company-logo_200_200/company-logo_200_200/0/1630660803145/srh_berlin_university_of_applied_sciences_logo?e=1755129600&v=beta&t=chXz3MzWV1n-2oSEzjvXWQ5xdqRgriKXidr5znfQo0U",
+        "title": "SRH Berlin University of Applied Sciences",
+        "subtitle": "Master's degree, Industry 4.0",
+        "caption": "Sep 2021 - Sep 2023",
+        "breakdown": false,
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "Activities and societies: Thesis Paper titled\nComprehensive Feature Selection Methods for Predicting Diabetes and Stroke Risk"
+              },
+              {
+                "type": "textComponent",
+                "text": "This study dives deep into the relationship between various risk factors and the prevalence of diabetes and stroke, particularly among married, divorced, or widowed individuals. By employing a robust feature selection process, we identified the most influential factors from a broad set of variables, enhancing the accuracy and robustness of predictive models."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "companyId": "20473144",
+        "companyUrn": "urn:li:fsd_company:20473144",
+        "companyLink1": "https://www.linkedin.com/company/20473144/",
+        "logo": "https://media.licdn.com/dms/image/v2/C510BAQFVp-fBqkKQyg/company-logo_200_200/company-logo_200_200/0/1630625612861?e=1755129600&v=beta&t=Xbeyv7mw18gg5UeT4LqPG6oMSmBdKgKTQBBL9eWoK-c",
+        "title": "SRM IST Chennai",
+        "subtitle": "Bachelor's degree, Mechatronics, Robotics, and Automation Engineering",
+        "caption": "2017 - 2021",
+        "breakdown": false,
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "insightComponent",
+                "text": "Grade: First Class With Distinction"
+              },
+              {
+                "type": "insightComponent",
+                "text": "Activities and societies: I received a scholarship from my University for one year based on my Academic performance (2017-2018). Awarded best project for 'Social Responsibility - Creativity' (2018) by Career Development center, SRM Institute of Science and Technology."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "licenseAndCertificates": [
+      {
+        "companyId": "1043",
+        "companyUrn": "urn:li:fsd_company:1043",
+        "companyLink1": "https://www.linkedin.com/company/1043/",
+        "logo": "https://media.licdn.com/dms/image/v2/D4D0BAQFK_4wGnzwPTQ/company-logo_200_200/company-logo_200_200/0/1719931174735/siemens_logo?e=1755129600&v=beta&t=GZqilxd7Wozdt8bK0LGLGNYBe7HGuy6r4TFal97Zsak",
+        "title": "Siemens Mechatronic Systems Certification Program (SMSCP) Assistant",
+        "subtitle": "Siemens",
+        "caption": "Issued Mar 2023",
+        "metadata": "Credential ID 1-69-0308",
+        "breakdown": false,
+        "subComponents": [
+          {
+            "description": []
+          }
+        ]
+      },
+      {
+        "companyId": "1337",
+        "companyUrn": "urn:li:fsd_company:1337",
+        "companyLink1": "https://www.linkedin.com/company/1337/",
+        "logo": "https://media.licdn.com/dms/image/v2/C560BAQHaVYd13rRz3A/company-logo_200_200/company-logo_200_200/0/1638831590218/linkedin_logo?e=1755129600&v=beta&t=953bYRJUPnSD2rfcheVF88SuPbEY33X3YV-8aJ231Ec",
+        "title": "Healthcare Analytics: Regression in R",
+        "subtitle": "LinkedIn",
+        "caption": "Issued Jan 2023",
+        "breakdown": false,
+        "subComponents": [
+          {
+            "description": []
+          }
+        ]
+      }
+    ],
+    "honorsAndAwards": [],
+    "languages": [],
+    "volunteerAndAwards": [
+      {
+        "companyId": "2312555",
+        "companyUrn": "urn:li:fsd_company:2312555",
+        "companyLink1": "https://www.linkedin.com/company/2312555/",
+        "logo": "https://media.licdn.com/dms/image/v2/C510BAQFJj_Mnaj1P1A/company-logo_200_200/company-logo_200_200/0/1631416222967?e=1755129600&v=beta&t=-Ymv43Bh97hvgQpKxyUiLeW-f9S-oBkLyOtFwVGahtM",
+        "title": "Teaching Volunteer",
+        "subtitle": "U&I Trust",
+        "caption": "Jan 2018 - Jan 2021 \u00b7 3 yrs",
+        "metadata": "Education",
+        "breakdown": false,
+        "subComponents": [
+          {
+            "description": []
+          }
+        ]
+      },
+      {
+        "companyId": "2312555",
+        "companyUrn": "urn:li:fsd_company:2312555",
+        "companyLink1": "https://www.linkedin.com/company/2312555/",
+        "logo": "https://media.licdn.com/dms/image/v2/C510BAQFJj_Mnaj1P1A/company-logo_200_200/company-logo_200_200/0/1631416222967?e=1755129600&v=beta&t=-Ymv43Bh97hvgQpKxyUiLeW-f9S-oBkLyOtFwVGahtM",
+        "title": "Leader",
+        "subtitle": "U&I Trust",
+        "caption": "Jan 2021 - Jan 2022 \u00b7 1 yr",
+        "metadata": "Education",
+        "breakdown": false,
+        "subComponents": [
+          {
+            "description": []
+          }
+        ]
+      }
+    ],
+    "verifications": [],
+    "promos": [],
+    "highlights": [],
+    "projects": [],
+    "publications": [
+      {
+        "title": "Comprehensive Feature Selection Methods for Predicting Diabetes and Stroke Risk",
+        "subtitle": "Springer Link - Lecture Notes in Networks and Systems \u00b7 Jun 15, 2024",
+        "breakdown": false,
+        "subComponents": [
+          {
+            "description": [
+              {
+                "type": "textComponent",
+                "text": "This study dives deep into the relationship between various risk factors and the prevalence of diabetes and stroke, particularly among married, divorced, or widowed individuals. By employing a robust feature selection process, we identified the most influential factors from a broad set of variables, enhancing the accuracy and robustness of predictive models."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "patents": [],
+    "courses": [],
+    "testScores": [],
+    "organizations": [],
+    "volunteerCauses": [],
+    "interests": [
+      {
+        "section_name": "Top Voices",
+        "section_components": [
+          {
+            "titleV2": "Dan Mian",
+            "caption": "164,004 followers",
+            "subtitle": "Helping UK-based graduates land top jobs | Founder @Gradvance | 300+ Success Stories | Onboarding our June cohort now - DM me \u201cDREAM JOB\u201d to learn more \ud83d\ude80",
+            "size": "LARGE",
+            "textActionTarget": "https://www.linkedin.com/in/danmian",
+            "subComponents": []
+          }
+        ]
+      },
+      {
+        "section_name": "Companies",
+        "section_components": [
+          {
+            "titleV2": "Accenture",
+            "caption": "13,314,602 followers",
+            "size": "LARGE",
+            "textActionTarget": "https://www.linkedin.com/company/1033/",
+            "subComponents": []
+          },
+          {
+            "titleV2": "Microsoft",
+            "caption": "25,596,412 followers",
+            "size": "LARGE",
+            "textActionTarget": "https://www.linkedin.com/company/1035/",
+            "subComponents": []
+          }
+        ]
+      },
+      {
+        "section_name": "Groups",
+        "section_components": [
+          {
+            "titleV2": "AL | ML | Mlops | Data Engineer | Data Scientist | Big Data jobs ",
+            "caption": "471 members",
+            "size": "LARGE",
+            "textActionTarget": "https://www.linkedin.com/groups/14488259",
+            "subComponents": []
+          },
+          {
+            "titleV2": "Software Testing Space",
+            "caption": "14,037 members",
+            "size": "LARGE",
+            "textActionTarget": "https://www.linkedin.com/groups/3055677",
+            "subComponents": []
+          }
+        ]
+      },
+      {
+        "section_name": "Newsletters",
+        "section_components": [
+          {
+            "titleV2": "Technology & Innovation News",
+            "caption": "Published biweekly",
+            "subtitle": "Delve into insightful reports on cutting-edge technology and make informed decisions with the latest industry updates.",
+            "size": "LARGE",
+            "textActionTarget": "https://www.linkedin.com/newsletters/7062435324584448000",
+            "subComponents": [
+              {
+                "insightComponent": {
+                  "text": "Siemens",
+                  "actionTarget": "https://www.linkedin.com/company/1043/"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "section_name": "Schools",
+        "section_components": [
+          {
+            "titleV2": "SRM IST Chennai",
+            "caption": "254,377 followers",
+            "size": "LARGE",
+            "textActionTarget": "https://www.linkedin.com/school/20473144/",
+            "subComponents": []
+          },
+          {
+            "titleV2": "Indian Institute of Technology, Ropar",
+            "caption": "69,452 followers",
+            "size": "LARGE",
+            "textActionTarget": "https://www.linkedin.com/school/15138979/",
+            "subComponents": []
+          }
+        ]
+      }
+    ],
+    "recommendations": []
+  },
   "keywords": "",
-  "messages": []
+  "messages": [
+    {
+      "message_id": "e8441c99-b1bf-45c3-a2b9-7dfba8a23f70",
+      "user_query": "How does my job fit the prfile?",
+      "ai_response": "Karthik's profile shows promising skills and experience relevant to the AI Agent Engineer role, but some gaps need addressing to enhance competitiveness.\n\n**Strengths:**\n\n1. **LLM & AI Experience:**  His experience building generative AI solutions for supply chain sustainability, including RAG framework development and CarbonGPT fine-tuning, directly aligns with the job's focus on LLMs and agent-based systems.\n2. **Technical Skills:** Demonstrated skills in Python, Azure, and vector databases are valuable assets.  His experience with Figma suggests UI/UX familiarity, a potential plus.\n3. **Relevant Projects:** The described projects showcase practical application of AI/ML in real-world scenarios, strengthening his candidacy.\n\n\n**Gaps:**\n\n1. **Agent Framework Expertise:** While he mentions building AI agents, the profile lacks explicit detail on experience with specific frameworks (LangChain, LangFlow, etc.)  The job description heavily emphasizes this.\n2. **Production-Scale Systems:** The profile highlights project work, but lacks substantial evidence of experience building and deploying AI/LLM workflows at a production scale in an enterprise setting.  This is a critical requirement.\n3. **Years of Experience:**  With only ~1.25 years of direct experience in AI/ML engineering roles, he falls slightly short of the 2+ years specified.\n\n\n**Actionable Insights:**\n\n1. **Highlight Framework Proficiency:** Quantify his experience with any relevant agent frameworks in his resume and LinkedIn profile. If limited, consider taking online courses or personal projects to gain demonstrable expertise.\n2. **Showcase Production Experience:**  Emphasize any aspects of his projects involving scalability, deployment, monitoring, or maintenance to demonstrate experience with production-level systems. If lacking, seek opportunities to contribute to open-source projects or find a role with more production focus.\n3. **Address Experience Gap:** While his experience is relevant, actively seek opportunities to gain more experience in building and deploying large-scale AI systems before applying.  Consider highlighting transferable skills from his current role.\n\n\nOverall, Karthik possesses a strong foundation but needs to strengthen his profile to showcase the specific experience and technical skills demanded by the job description.  Addressing the gaps above will significantly improve his competitiveness.",
+      "timestamp": "2025-06-13T12:34:39.659516"
+    }
+  ]
 }
