@@ -9,7 +9,7 @@ import re
 import logging
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
-from dotenv import load_dotenv
+
 from langchain.chains import LLMChain
 from langchain_google_genai import ChatGoogleGenerativeAI
 
@@ -37,9 +37,9 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # API Configuration
-APIFY_TOKEN = os.getenv("APIFY_TOKEN")
-APIFY_ACTOR_ID = os.getenv("APIFY_ACTOR_ID")
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+APIFY_TOKEN = st.secrets["APIFY_TOKEN"]
+APIFY_ACTOR_ID = st.secrets["APIFY_ACTOR_ID"]
+GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
 
 os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY   
 APIFY_ENDPOINT = (
