@@ -11,6 +11,7 @@ LinkedIn Profile Optimizer is a Streamlit application designed to help users opt
 - [Code Structure](#code-structure)
 - [Contributing](#contributing)
 - [License](#license)
+- [Changes to v1.1](#changes-to-v1.1)
 
 ## Features
 
@@ -96,4 +97,113 @@ The codebase is organized as follows:
 - `process_first_query()`: Processes the first query with profile extraction and initial analysis.
 - `process_followup_query()`: Processes follow-up queries with conversation context.
 
+## Changes to v1.1
+
+### 1. **New Agents and Prompts Added**
+
+#### **Conversation Helper (`conversation_helper`)**
+- **Description**: 
+  - Added a new agent to handle meta-queries related to the conversation history, such as "What did we discuss?", "What was my first request?", and "Show me our conversation history."
+- **Reason**: 
+  - This addresses feedback regarding the tool's inability to handle and provide specific answers about past interactions.
+
+#### **Roadmap Generator (`roadmap_generator`)**
+- **Description**: 
+  - Introduced a new agent that generates personalized career development roadmaps, including milestones, timelines, and specific learning resources.
+- **Reason**: 
+  - The previous version provided generic career advice. This agent creates a tailored roadmap that is actionable and specific to the user's profile and target job role.
+
+#### **Greeting Agent (`greeting`)**
+- **Description**: 
+  - This new agent responds to user greetings such as "Hi", "Hello", "Good morning", etc., to make the tool more conversational.
+- **Reason**: 
+  - This improves the user experience by making the interaction feel more natural and friendly.
+
+### 2. **Routing Logic Enhancements**
+
+#### **Meta-Query Handling**
+- **Description**: 
+  - Updated routing logic to specifically detect meta-queries related to conversation history and route them to the `conversation_helper` agent.
+- **Reason**: 
+  - Previously, the tool failed to respond to queries about past interactions. This update ensures that history-related queries are routed correctly.
+
+#### **Improved Routing for Career Roadmap Queries**
+- **Description**: 
+  - Routing logic now detects when users inquire about career roadmaps and routes these queries to the `roadmap_generator` agent.
+- **Reason**: 
+  - This change ensures that queries about personalized career development are handled by the correct agent, delivering tailored roadmaps.
+
+#### **Format Detection**
+- **Description**: 
+  - Added logic to detect user preferences for response formats (e.g., lists, bullet points) and ensure agents return responses in the requested format.
+- **Reason**: 
+  - Users wanted more structured and actionable outputs. This ensures that responses are formatted according to the user's preferences.
+
+### 3. **Profile Content Enhancements**
+
+#### **Role Attribution Accuracy**
+- **Description**: 
+  - Updated the `content_enhancer` agent to maintain correct attribution of projects to their respective job roles (e.g., internship projects are not moved to full-time roles).
+- **Reason**: 
+  - Feedback indicated that the tool was misattributing internship projects to full-time roles. This change ensures that content is attributed correctly.
+
+#### **Improved Content Enhancement for LinkedIn Profile**
+- **Description**: 
+  - Enhanced the profile analyzer and content enhancer agents to focus on results-driven descriptions, quantified achievements, and accurate role attribution.
+- **Reason**: 
+  - Previous content suggestions were too generic. This update ensures that content is more specific, tailored, and actionable for profile optimization.
+
+### 4. **Structured Learning Pathways**
+
+#### **Detailed Skill Gap Analysis**
+- **Description**: 
+  - Enhanced the `skill_gap_analyzer` agent to provide specific, actionable learning resources (e.g., courses, platforms, instructors).
+- **Reason**: 
+  - Feedback indicated that skill gap analysis was too generalized. This change provides users with clear, detailed learning paths to fill skill gaps.
+
+#### **Milestones and Timelines in Career Roadmap**
+- **Description**: 
+  - The `roadmap_generator` now includes specific milestones, timelines, and actionable steps for career progression.
+- **Reason**: 
+  - The previous roadmap was too vague. This update ensures that users receive concrete, measurable milestones with timelines to track their career development.
+
+### 5. **Improved Query Routing Logic**
+
+#### **Meta-Query Handling for Conversation History**
+- **Description**: 
+  - Enhanced routing logic to route conversation history queries to the `conversation_helper` agent.
+- **Reason**: 
+  - Ensures that users' requests for past conversation details are addressed accurately and promptly.
+
+#### **Improved Detection for Career Roadmap Queries**
+- **Description**: 
+  - Routing logic now specifically detects when users ask for career roadmaps and routes those queries to the `roadmap_generator`.
+- **Reason**: 
+  - Ensures that queries about personalized career development plans are handled correctly and generate tailored roadmaps.
+
+### 6. **User Feedback and Interactions**
+
+#### **Greeting Logic**
+- **Description**: 
+  - The tool now detects greetings and routes them to the `greeting` agent for a friendly and conversational response.
+- **Reason**: 
+  - Adds a conversational element to the interaction, making the tool more user-friendly and engaging.
+
+### 7. **Improved Data Processing and Error Handling**
+
+#### **Data Attribution and Handling**
+- **Description**: 
+  - Ensured that each project is attributed to the correct job role (e.g., internship projects remain with the internship role).
+- **Reason**: 
+  - This prevents the issue where projects were incorrectly moved between job roles, ensuring accurate and meaningful profile data.
+
+### 8. **Optimizing Response Generation**
+
+#### **Synthesis of Multiple Agent Outputs**
+- **Description**: 
+  - Added the `collaborative_agent` to merge responses from multiple agents into a cohesive, user-friendly message.
+- **Reason**: 
+  - Improves the final response by combining insights from multiple agents into a single, clear, and actionable answer.
+
+---
 
