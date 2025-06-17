@@ -575,6 +575,12 @@
       "user_query": "Can you tell me what was the 1st request that I asekd u",
       "ai_response": "Your first request was: \"Improve my profile so I can apply for Data Scientist role\".",
       "timestamp": "2025-06-17T12:10:02.788204"
+    },
+    {
+      "message_id": "6bd12730-562d-46f4-8c9a-44e8fdc41e62",
+      "user_query": "Can you tell me what was the last request that I asekd u",
+      "ai_response": "**Error**: Unknown agent `conversation_helper`",
+      "timestamp": "2025-06-17T06:55:47.419036"
     }
   ]
 }
