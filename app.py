@@ -21,7 +21,9 @@ from prompts import (
     content_enhancer_prompt,
     skill_gap_analyzer_prompt,
     history_manager_prompt,
-    collaborative_agent_prompt
+    collaborative_agent_prompt,
+    roadmap_generator_prompt,
+    conversation_helper_prompt
 )
 import base64
 
@@ -92,6 +94,10 @@ APIFY_ENDPOINT = (
 SESSIONS_DIR = "sessions"
 os.makedirs(SESSIONS_DIR, exist_ok=True)
 
+# Session storage directory
+SESSIONS_DIR = "sessions"
+os.makedirs(SESSIONS_DIR, exist_ok=True)
+
 @st.cache_resource
 def get_llm() -> ChatGoogleGenerativeAI:
     """Initialize and cache the Google Gemini LLM instance"""
@@ -102,8 +108,6 @@ def get_llm() -> ChatGoogleGenerativeAI:
 
 
 class LinkedInOptimizer:
-    """Main optimizer class that handles LinkedIn profile analysis using AI agents"""
-    
     def __init__(self) -> None:
         self.llm = get_llm()
         logger.info("Initializing LinkedInOptimizer with Gemini model")
@@ -117,7 +121,8 @@ class LinkedInOptimizer:
         self.skillgap_chain = LLMChain(llm=self.llm, prompt=skill_gap_analyzer_prompt)
         self.history_chain = LLMChain(llm=self.llm, prompt=history_manager_prompt)
         self.collaborative_chain = LLMChain(llm=self.llm, prompt=collaborative_agent_prompt)
-        
+        self.roadmap_chain = LLMChain(llm=self.llm, prompt=roadmap_generator_prompt)
+        self.conversation_helper_chain = LLMChain(llm=self.llm, prompt=conversation_helper_prompt)
         logger.info("All LangChain agents initialized successfully")
 
     @staticmethod
@@ -134,82 +139,176 @@ class LinkedInOptimizer:
         try:
             payload = {"profileUrls": [profile_url], "proxy": {"useApifyProxy": True}}
             r = requests.post(APIFY_ENDPOINT, json=payload, timeout=120)
-            
+
             if r.status_code >= 400:
                 logger.error(f"Apify API error: {r.status_code} - {r.text}")
                 raise RuntimeError(f"Apify error {r.status_code}: {r.text}")
-            
+
             items = r.json()
             if not items:
                 logger.warning("Apify returned empty result set")
                 raise ValueError("Apify returned an empty result set.")
-            
-            logger.info(f"Successfully extracted profile data. Keys: {list(items[0].keys())}")
-            return items[0]
-            
+
+            profile_data = items[0]
+
+            # Validate and correct data attribution
+            if "experiences" in profile_data:
+                for exp in profile_data["experiences"]:
+                    if "projects" in exp:
+                        for project in exp["projects"]:
+                            project["role"] = exp.get("title", "Unknown Role")
+
+            logger.info(f"Successfully extracted profile data. Keys: {list(profile_data.keys())}")
+            return profile_data
+
         except Exception as e:
             logger.error(f"Profile extraction failed: {str(e)}")
             raise
 
-    def extract_keywords(self, job_description: str) -> str:
+    def extract_keywords(self, job_description: str, profile_data: str = "", conversation_context: str = "", current_query: str = "") -> str:
         """Extract relevant keywords from job description using AI"""
         logger.info("Executing keyword extraction agent")
         try:
-            result = self.keyword_chain.run({"job_description": job_description})
+            result = self.keyword_chain.run({
+                "job_description": job_description,
+                "profile_data": profile_data,
+                "conversation_context": conversation_context,
+                "current_query": current_query
+            })
             logger.info("Keyword extraction completed successfully")
             return result
         except Exception as e:
             logger.error(f"Keyword extraction failed: {str(e)}")
             st.error(f"Error extracting keywords: {e}")
             return ""
-
+        
     def route_query(self, user_query: str, available_agents: str = None, conversation_context: str = "") -> List[str]:
         """Route user query to appropriate AI agents based on content"""
         logger.info(f"Routing query: {user_query[:100]}...")
+
+        # Check if the user query is a greeting (improved detection)
+        greeting_keywords = ['hi', 'hello', 'hey', 'greetings', 'good morning', 'good afternoon', 'good evening']
+        user_query_lower = user_query.lower().strip()
         
+        # Check for exact greeting or greeting at start of sentence
+        if (user_query_lower in greeting_keywords or 
+            any(user_query_lower.startswith(greeting) for greeting in greeting_keywords)):
+            logger.info("Greeting detected, routing to greeting agent")
+            return ["greeting"]
+
         if available_agents is None:
-            available_agents = "profile_analyzer, job_fit_analyzer, content_enhancer, skill_gap_analyzer"
-        
+            available_agents = "profile_analyzer, job_fit_analyzer, content_enhancer, skill_gap_analyzer, roadmap_generator"
+
         try:
             raw_response = self.routing_chain.run({
-                "user_query": user_query, 
+                "user_query": user_query,
                 "available_agents": available_agents,
                 "conversation_context": conversation_context
             })
-            
-            logger.info(f"Raw routing response: {raw_response}")
-            
-            # Clean JSON response and parse agent names
-            clean_response = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw_response.strip(), flags=re.IGNORECASE)
 
-            if clean_response.startswith('[') and clean_response.endswith(']'):
+            logger.info(f"Raw routing response: {raw_response}")
+
+            # Clean and parse the response more robustly
+            clean_response = raw_response.strip()
+            
+            # Remove markdown code blocks if present
+            if clean_response.startswith('```'):
+                lines = clean_response.split('\n')
+                clean_response = '\n'.join(lines[1:-1]) if len(lines) > 2 else clean_response
+            
+            # Remove any remaining markdown formatting
+            clean_response = clean_response.replace('```json', '').replace('```', '').strip()
+
+            # Attempt to parse the response as JSON
+            try:
                 agents = json.loads(clean_response)
+                if isinstance(agents, list) and len(agents) > 0:
+                    logger.info(f"Successfully parsed agents: {agents}")
+                    return agents
+            except json.JSONDecodeError as json_error:
+                logger.warning(f"JSON parsing failed: {json_error}")
+                logger.warning(f"Attempting text extraction from: {clean_response}")
+
+            # Fallback: extract agent names from text response
+            agents = self._extract_agents_from_text(clean_response)
+            logger.info(f"Extracted agents from text: {agents}")
+            
+            if agents:
+                return agents
             else:
-                # Fallback: extract agent names from text response
-                agents = self._extract_agents_from_text(clean_response)
-            
-            logger.info(f"Selected agents: {agents}")
-            return agents if isinstance(agents, list) else [agents]
-            
+                logger.error("No valid agents found in routing response")
+                raise ValueError("No valid agents identified in routing response")
+
         except Exception as e:
             logger.error(f"Routing error: {str(e)}")
-            logger.info("Falling back to profile_analyzer")
-            return ["profile_analyzer"]
+            logger.error(f"Failed to route query: {user_query}")
+            raise RuntimeError(f"Agent routing failed: {str(e)}")
+    
+    def execute_agent(self, agent_name: str, **kwargs) -> str:
+        """Execute individual AI agent and return its response"""
+        
+        # Handle greeting agent first (before chain mapping)
+        if agent_name == "greeting":
+            return self.handle_greeting()
 
+        chain_mapping = {
+            "profile_analyzer": self.profile_chain,
+            "job_fit_analyzer": self.jobfit_chain,
+            "content_enhancer": self.content_chain,
+            "keyword_analyzer": self.keyword_chain, 
+            "skill_gap_analyzer": self.skillgap_chain,
+            "history_manager": self.history_chain,
+            "roadmap_generator": self.roadmap_chain,
+            "conversation_helper": self.conversation_helper_chain
+        }
+        
+        chain = chain_mapping.get(agent_name)
+        if not chain:
+            logger.error(f"Unknown agent requested: {agent_name}")
+            return f"**Error**: Unknown agent `{agent_name}`"
+
+        try:
+            logger.info(f"Executing agent: {agent_name}")
+            result = chain.run(kwargs)
+            logger.info(f"Agent {agent_name} completed successfully")
+            return result
+        except Exception as e:
+            logger.error(f"{agent_name} execution failed: {e}")
+            return f"**Error running {agent_name}:** {e}"
+        
     def _extract_agents_from_text(self, text: str) -> List[str]:
         """Extract agent names from text when JSON parsing fails"""
         valid_agents = [
-            "profile_analyzer", "job_fit_analyzer", 
-            "content_enhancer", "skill_gap_analyzer"
+            "greeting",
+            "conversation_helper",
+            "profile_analyzer", 
+            "job_fit_analyzer",
+            "content_enhancer", 
+            "skill_gap_analyzer",
+            "roadmap_generator",
+            "keyword_analyzer"
         ]
-        
-        found_agents = []
-        for agent in valid_agents:
-            if agent in text.lower():
-                found_agents.append(agent)
-        
-        return found_agents if found_agents else ["profile_analyzer"]
 
+        found_agents = []
+        text_lower = text.lower()
+        
+        for agent in valid_agents:
+            # Check for exact match or underscore/hyphen variations
+            if (agent in text_lower or 
+                agent.replace('_', '-') in text_lower or
+                agent.replace('_', ' ') in text_lower):
+                found_agents.append(agent)
+
+        # Remove duplicates while preserving order
+        found_agents = list(dict.fromkeys(found_agents))
+        
+        return found_agents
+    
+    def handle_greeting(self) -> str:
+        """Handle greeting from the user"""
+        return "Hello! How can I assist you with optimizing your LinkedIn profile today?"
+    
+    
     def get_relevant_history(self, conversation_history: str, current_query: str, target_agent: str) -> str:
         """Extract relevant conversation history for current query context"""
         logger.info(f"Extracting relevant history for agent: {target_agent}")
@@ -225,26 +324,7 @@ class LinkedInOptimizer:
             logger.error(f"History extraction error: {str(e)}")
             return ""
 
-    def execute_agent(self, agent_name: str, **kwargs) -> str:
-        """Execute individual AI agent and return its response"""
-        chain = {
-            "profile_analyzer": self.profile_chain,
-            "job_fit_analyzer": self.jobfit_chain,
-            "content_enhancer": self.content_chain,
-            "keyword_analyzer": self.keyword_chain,
-            "skill_gap_analyzer": self.skillgap_chain,
-            "history_manager": self.history_chain,
-        }.get(agent_name)
-
-        if not chain:
-            return f"**Error**: Unknown agent `{agent_name}`"
-
-        try:
-            return chain.run(kwargs)
-        except Exception as e:
-            logger.error(f"{agent_name} failed: {e}")
-            return f"**Error running {agent_name}:** {e}"
-
+      
     async def execute_agents_async(self, agents: List[str], **kwargs) -> List[Dict[str, Any]]:
         """Execute multiple agents concurrently for faster processing"""
         logger.info(f"Executing {len(agents)} agents asynchronously: {agents}")
@@ -309,17 +389,12 @@ class SessionManager:
             return None
     
     def save_session(self, session_data: Dict[str, Any]):
-        """Save session data to local file and GitHub"""
+        """Save session data to storage file"""
         session_id = session_data["session_id"]
         session_file = os.path.join(self.sessions_dir, f"{session_id}.json")
-        
         with open(session_file, 'w') as f:
             json.dump(session_data, f, indent=2)
-        
-        logger.info(f"Session saved locally: {session_id}")
-
-        # Push to GitHub
-        push_session_to_github(session_data)
+        logger.info(f"Session saved: {session_id}")
     
     def get_all_sessions(self) -> List[Dict[str, Any]]:
         """Retrieve all session summaries for sidebar display"""
@@ -535,9 +610,14 @@ def process_first_query(session_data: Dict[str, Any], user_query: str):
             st.error("Failed to extract profile data. Please check the LinkedIn URL.")
             return
         
-        # Extract keywords from job description
+        # Extract keywords from job description with proper parameters
         logger.info("Analyzing job description for keywords...")
-        keywords = optimizer.extract_keywords(session_data["job_description"])
+        keywords = optimizer.extract_keywords(
+            job_description=session_data["job_description"],
+            profile_data=json.dumps(profile_data, indent=2),
+            conversation_context="",
+            current_query=user_query
+        )
         
         # Cache extracted data in session
         session_data["profile_data"] = profile_data
@@ -571,7 +651,6 @@ def process_first_query(session_data: Dict[str, Any], user_query: str):
         error_msg = f"Error processing first query: {str(e)}"
         logger.error(error_msg)
         st.error(error_msg)
-
 
 def process_followup_query(session_data: Dict[str, Any], user_query: str):
     """Process follow-up queries with conversation context"""
@@ -640,7 +719,20 @@ def execute_agents_sync(
     agent_outputs = []
     for agent in selected_agents:
         logger.info(f"Executing agent: {agent}")
-        raw_output = optimizer.execute_agent(agent, **common_params).strip()
+        if agent == "conversation_helper":
+            conversation_helper_params = {
+                "conversation_context": relevant_context,
+                "current_query": user_query,
+                "session_data": json.dumps({
+                    "messages": session_data.get("messages", []),
+                    "session_id": session_data.get("session_id", ""),
+                    "created_at": session_data.get("created_at", "")
+                }, indent=2)
+            }
+            raw_output = optimizer.execute_agent(agent, **conversation_helper_params).strip()
+        else:
+            raw_output = optimizer.execute_agent(agent, **common_params).strip()
+            
         agent_outputs.append(f"{agent}:\n{raw_output}")
 
     # Return single agent output directly, or merge multiple outputs
