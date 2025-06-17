@@ -9,9 +9,7 @@ LinkedIn Profile Optimizer is a Streamlit application designed to help users opt
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [Code Structure](#code-structure)
-- [Contributing](#contributing)
-- [License](#license)
-- [Changes to v1.1](#changes-to-v1.1)
+- [Changes to v1.1](#version1.1)
 
 ## Features
 
@@ -97,7 +95,7 @@ The codebase is organized as follows:
 - `process_first_query()`: Processes the first query with profile extraction and initial analysis.
 - `process_followup_query()`: Processes follow-up queries with conversation context.
 
-## Changes to v1.1
+## Version1.1
 
 ### 1. **New Agents and Prompts Added**
 
